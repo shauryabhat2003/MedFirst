@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Google Places API...
-const googleAPIKey = 'AIzaSyCaDSA9uQ9dkbkYmsY1FEDkX9ESKYQV2kA'; 
+
 const placeType = 'hospital';
 const latitude = 20.3488963;
 const longitude = 85.8157988;
