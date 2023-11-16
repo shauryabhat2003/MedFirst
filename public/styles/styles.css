@@ -1,0 +1,405 @@
+
+/* Navbar */
+.bg-custom{
+	background-color: #005B41 ;
+}
+
+.nearbyHospitalstitle{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* carousel */
+html {
+	box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+	box-sizing: inherit;
+	padding: 0;
+	margin: 0;
+  }
+  
+  body {
+	font-size: 16px;
+	line-height: 1.5;
+	font-family: Roboto, sans-serif;
+  }
+  
+  .slider {
+	position: relative;
+	width: 960px;
+	height: 300px;
+	margin: 50px auto;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+	  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+  }
+  
+  .slider-controls {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	width: 200px;
+	text-align: center;
+	transform: translatex(-50%);
+	z-index: 1000;
+  
+	list-style: none;
+	text-align: center;
+  }
+  
+  .slider input[type="radio"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  .slider-controls label {
+	display: inline-block;
+	border: none;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #a19d9d;
+	transition: background-color 0.2s linear;
+  }
+  
+  #btn-1:checked ~ .slider-controls label[for="btn-1"] {
+	background-color: #005B41;
+  }
+  
+  #btn-2:checked ~ .slider-controls label[for="btn-2"] {
+	background-color: #005B41;
+  }
+  
+  #btn-3:checked ~ .slider-controls label[for="btn-3"] {
+	background-color: #005B41;
+  }
+  
+  /* SLIDES */
+  
+  .slides {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+  }
+  
+  .slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+  
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	width: 100%;
+	height: 100%;
+  
+	opacity: 0;
+	transform: translatex(-100%);
+	transition: transform 250ms linear;
+  }
+  
+  .slide-content {
+	width: 400px;
+  }
+  
+  .slide-title {
+	margin-bottom: 20px;
+	font-size: 36px;
+  }
+  
+  .slide-text {
+	margin-bottom: 20px;
+  }
+  
+  .slide-link {
+	display: inline-block;
+	padding: 10px 20px;
+	color: #fff;
+	border-radius: 3px;
+	text-decoration: none;
+	background-color: #005B41;
+  }
+  
+  .slide-image img {
+	max-width: 100%;
+  }
+  
+  /* Slide animations */
+  #btn-1:checked ~ .slides .slide:nth-child(1) {
+	transform: translatex(0);
+	opacity: 1;
+  }
+  
+  #btn-2:checked ~ .slides .slide:nth-child(2) {
+	transform: translatex(0);
+	opacity: 1;
+  }
+  
+  #btn-3:checked ~ .slides .slide:nth-child(3) {
+	transform: translatex(0);
+	opacity: 1;
+  }
+  
+  #btn-1:not(:checked) ~ .slides .slide:nth-child(1) {
+	animation-name: swap-out;
+	animation-duration: 300ms;
+	animation-timing-function: linear;
+  }
+  
+  #btn-2:not(:checked) ~ .slides .slide:nth-child(2) {
+	animation-name: swap-out;
+	animation-duration: 300ms;
+	animation-timing-function: linear;
+  }
+  
+  #btn-3:not(:checked) ~ .slides .slide:nth-child(3) {
+	animation-name: swap-out;
+	animation-duration: 300ms;
+	animation-timing-function: linear;
+  }
+  
+  @keyframes swap-out {
+	0% {
+	  transform: translatex(0);
+	  opacity: 1;
+	}
+  
+	50% {
+	  transform: translatex(50%);
+	  opacity: 0;
+	}
+  
+	100% {
+	  transform: translatex(100%);
+	}
+  }
+
+/* Hospital/Pharmacy Cards */
+h1{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.myCard {
+  background-color: transparent;
+  width: 240px;
+  height: 320px;
+  perspective: 1000px;
+  display: inline-flex;
+  gap: 300px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  color: black;
+}
+
+.innerCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  padding:20px;
+}
+
+.myCard:hover .innerCard {
+  transform: rotateY(180deg);
+}
+
+.frontSide,
+.backSide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.frontSide,
+.frontSide::before {
+  background: linear-gradient(43deg, #04AA6D 0%, #ffffff 100%);
+}
+
+.backSide,
+.backSide::before {
+  background-image: linear-gradient(160deg, #00FF00 0%, #FFFFFF 100%);
+}
+
+.backSide {
+  transform: rotateY(180deg);
+}
+
+.frontSide::before,
+.backSide::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '';
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  z-index: -1;
+  border-radius: 1em;
+  filter: blur(20px);
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+#locate-button1, #call-now-button,
+#locate-button2, #locate-button2,
+#locate-button3, #locate-button3 {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#locate-button1:hover, #call-now-button:hover,
+#locate-button2:hover, #call-now-button:hover,
+#locate-button3:hover, #call-now-button:hover {
+  background-color: #0056b3;
+}
+
+.resizable-image {
+  width: 180px; 
+  height: 180px; 
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10%;
+}
+
+
+#Hospital1 {
+  width: 190px;
+  height: 210px;
+  border-radius: 10%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pop-Up */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+/* content */
+
+/* Footer */
+
+.footer-wrapper {
+	margin-top: auto;
+}
+
+.footer {
+	background-color: hsl(163, 80%, 30%); /* Adjust the background color as needed */
+	padding: 20px;
+	border-top: 70px solid #ffffff; /* Add a border at the top for separation */
+}
+
+.nav-item{
+  color:#fff;
+}
